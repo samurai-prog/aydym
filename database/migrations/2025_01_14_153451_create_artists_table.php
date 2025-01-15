@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->sring('image')->nullable();
+            $table->string('image')->nullable();
         });
     }
 

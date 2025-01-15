@@ -15,13 +15,14 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
             $table->unsignedBigInteger('artist_id')->index();
             $table->foreign('artist_id')->references('id')->on('artists')->cascadeOnDelete();
-            $table->unsignedBigInteger('album_id')->index();
-            $table->foreign('album_id')->references('id')->on('albums')->cascadeOnDelete();
+            $table->unsignedBigInteger('album_id')->index()->nullable();
+            $table->foreign('album_id')->references('id')->on('albums')->nullOnDelete();
             $table->string('name');
             $table->string('audio')->nullable();
-            $table->unsignedInteger('viewed')->default(0);
-            $table->unsignedInteger('downloaded')->default(0);
+            $table->unsignedInteger('views')->default(0);
+            $table->unsignedInteger('downloads')->default(0);
             $table->unsignedInteger('favorites')->default(0);
+            $table->timestamps();
         });
     }
 
