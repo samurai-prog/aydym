@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('album_id')->index()->nullable();
             $table->foreign('album_id')->references('id')->on('albums')->nullOnDelete();
             $table->string('name');
+            $table->string('image')->nullable();
             $table->string('audio')->nullable();
             $table->unsignedInteger('views')->default(0);
             $table->unsignedInteger('downloads')->default(0);
